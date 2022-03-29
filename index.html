@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>Fiitjee - WCRM</title>
+	<link rel="shortcut icon" type="image/png" href="/media/images/favicon.png">
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
+	<link rel="stylesheet" type="text/css" href="/media/css/site-examples.css?_=94461d89946ef749b7a43d14685c725d1">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
+	<style type="text/css" class="init">
+	
+	</style>
+	<script type="text/javascript" src="/media/js/site.js?_=0c32e5cdbe9b575086edb0b907646184"></script>
+	<script type="text/javascript" src="/media/js/dynamic.php?comments-page=extensions%2Fdatetime%2Fexamples%2Fintegration%2Fdatatables.html" async></script>
+	<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.1/js/dataTables.dateTime.min.js"></script>
+	<script type="text/javascript" language="javascript" src="../../../../examples/resources/demo.js"></script>
+	<script type="text/javascript" class="init">
+	
+
+
+var minDate, maxDate;
+
+// Custom filtering function which will search data in column four between two values
+$.fn.dataTable.ext.search.push(
+	function( settings, data, dataIndex ) {
+		var min = minDate.val();
+		var max = maxDate.val();
+		var date = new Date( data[4] );
+
+		if (
+			( min === null && max === null ) ||
+			( min === null && date <= max ) ||
+			( min <= date   && max === null ) ||
+			( min <= date   && date <= max )
+		) {
+			return true;
+		}
+		return false;
+	}
+);
+
+$(document).ready(function() {
+	// Create date inputs
+	minDate = new DateTime($('#min'), {
+		format: 'MMMM Do YYYY'
+	});
+	maxDate = new DateTime($('#max'), {
+		format: 'MMMM Do YYYY'
+	});
+
+	// DataTables initialisation
+	var table = $('#example').DataTable();
+
+	// Refilter the table
+	$('#min, #max').on('change', function () {
+		table.draw();
+	});
+});
+
+
+
+	</script>
+
+
+
+
+</head>
+
+<img src="fiitjee LOGO.png" width="100" height="100" style="float:right">
+<center>
+
+	<h1>FIITJEE MUMBAI</h1>
+		<h3>
+		WCRM
+		</h3>
+		<b>Search For WCRM:
+
+<body class="wide comments example">
+	<a name="top" id="top"></a>
+	<div class="fw-background">
+		<div></div>
+	</div>
+	
+		
+		
+				<div class="demo-html">
+					<table border="0" cellspacing="5" cellpadding="5">
+						<tr>
+							<td>From Date:</td>
+							<td><input type="text" id="min" name="min"></td>
+						</tr>
+						<tr>
+							<td>To Date:</td>
+							<td><input type="text" id="max" name="max"></td>
+						</tr>
+					</table>
+					<table id="example" class="xl6323428" style="width:100%">
+						
+				<thead>		
+							<tr height=28 style='height:21.0pt'>
+  <td height=28 class=xl6323428 width=59 style='height:21.0pt;width:44pt;
+  font-size:8.0pt;color:white;font-weight:700;text-decoration:none;text-underline-style:
+  none;text-line-through:none;font-family:Tahoma;border-top:.5pt solid #8EAADC;
+  border-right:none;border-bottom:.5pt solid #8EAADC;border-left:.5pt solid #8EAADC;
+  background:#4472C4;mso-pattern:#4472C4 none'>Subject</td>
+  <td class=xl6323428 width=77 style='width:58pt;font-size:8.0pt;color:white;
+  font-weight:700;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Tahoma;border-top:.5pt solid #8EAADC;border-right:none;
+  border-bottom:.5pt solid #8EAADC;border-left:none;background:#4472C4;
+  mso-pattern:#4472C4 none'>Module</td>
+  <td class=xl6323428 width=59 style='width:44pt;font-size:8.0pt;color:white;
+  font-weight:700;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Tahoma;border-top:.5pt solid #8EAADC;border-right:none;
+  border-bottom:.5pt solid #8EAADC;border-left:none;background:#4472C4;
+  mso-pattern:#4472C4 none'>Order</td>
+  <td class=xl6323428 width=113 style='width:85pt;font-size:8.0pt;color:white;
+  font-weight:700;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Tahoma;border-top:.5pt solid #8EAADC;border-right:none;
+  border-bottom:.5pt solid #8EAADC;border-left:none;background:#4472C4;
+  mso-pattern:#4472C4 none'>CTScan ID (Level 1)</td>
+  <td class=xl6723428 width=113 style='width:85pt;font-size:8.0pt;color:white;
+  font-weight:700;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Tahoma;border-top:.5pt solid #8EAADC;border-right:none;
+  border-bottom:.5pt solid #8EAADC;border-left:none;background:#4472C4;
+  mso-pattern:#4472C4 none'>Start date</td>
+  <td class=xl6423428 width=995 style='width:746pt;font-size:8.0pt;color:white;
+  font-weight:700;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Tahoma;border-top:.5pt solid #8EAADC;border-right:.5pt solid #8EAADC;
+  border-bottom:.5pt solid #8EAADC;border-left:none;background:#4472C4;
+  mso-pattern:#4472C4 none'>Syllabus Assembly</td>
+ </tr>
+
+</thead>
+
+<tbody>
+
+
+
+ <tr height=42 style='height:31.5pt'>
+  <td height=42 class=xl6523428 style='height:31.5pt;font-size:8.0pt;
+  color:black;font-weight:400;text-decoration:none;text-underline-style:none;
+  text-line-through:none;font-family:Tahoma;border-top:none;border-right:none;
+  border-bottom:.5pt solid #8EAADC;border-left:.5pt solid #8EAADC;background:
+  #D9E2F3;mso-pattern:#D9E2F3 none'>PH</td>
+  <td class=xl6523428 style='font-size:8.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:Tahoma;border-top:none;border-right:none;border-bottom:.5pt solid #8EAADC;
+  border-left:none;background:#D9E2F3;mso-pattern:#D9E2F3 none'>1</td>
+  <td class=xl6523428 style='font-size:8.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:Tahoma;border-top:none;border-right:none;border-bottom:.5pt solid #8EAADC;
+  border-left:none;background:#D9E2F3;mso-pattern:#D9E2F3 none'>1</td>
+  <td class=xl6523428 style='font-size:8.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:Tahoma;border-top:none;border-right:none;border-bottom:.5pt solid #8EAADC;
+  border-left:none;background:#D9E2F3;mso-pattern:#D9E2F3 none'>20220110011</td>
+  <td class=xl6823428 style='font-size:8.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:Tahoma;border-top:none;border-right:none;border-bottom:.5pt solid #8EAADC;
+  border-left:none;background:#D9E2F3;mso-pattern:#D9E2F3 none'>2011/04/25</td>
+  <td class=xl6623428 width=995 style='width:746pt;font-size:8.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Tahoma;border-top:none;border-right:.5pt solid #8EAADC;
+  border-bottom:.5pt solid #8EAADC;border-left:none;background:#D9E2F3;
+  mso-pattern:#D9E2F3 none'>UNITS &amp; DIMENSIONS: DIMENSIONS, ADVANTAGES OF
+  DIMENSIONAL ANALYSIS, VECTORS: VECTOR ADDITION, VECTOR ADDITION &gt; TRIANGLE
+  LAW, VECTOR ADDITION &gt; POLYGON LAW, SCALAR PRODUCT, APPLICATION OF SCALAR
+  PRODUCT &gt; PROJECTION, APPLICATION OF SCALAR PRODUCT &gt; PROJECTION
+  VECTOR, VECTOR PRODUCT, TRIPLE PRODUCT &gt; VECTOR TRIPLE PRODUCT (VTP),
+  KINEMATICS: DISTANCE &amp; DISPLACEMENT, VELOCITY &amp; SPEED, ACCELERATION,
+  UNIFORMLY ACCELERATED MOTION</td>
+ </tr>
+ <tr height=28 style='height:21.0pt'>
+  <td height=28 class=xl6523428 style='height:21.0pt;font-size:8.0pt;
+  color:black;font-weight:400;text-decoration:none;text-underline-style:none;
+  text-line-through:none;font-family:Tahoma;border-top:none;border-right:none;
+  border-bottom:.5pt solid #8EAADC;border-left:.5pt solid #8EAADC'>CH</td>
+  <td class=xl6523428 style='font-size:8.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:Tahoma;border-top:none;border-right:none;border-bottom:.5pt solid #8EAADC;
+  border-left:none'>1</td>
+  <td class=xl6523428 style='font-size:8.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:Tahoma;border-top:none;border-right:none;border-bottom:.5pt solid #8EAADC;
+  border-left:none'>1</td>
+  <td class=xl6523428 style='font-size:8.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:Tahoma;border-top:none;border-right:none;border-bottom:.5pt solid #8EAADC;
+  border-left:none'>20220120011</td>
+  <td class=xl6823428 style='font-size:8.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:Tahoma;border-top:none;border-right:none;border-bottom:.5pt solid #8EAADC;
+  border-left:none'>2011/07/25</td>
+  <td class=xl6623428 width=995 style='width:746pt;font-size:8.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Tahoma;border-top:none;border-right:.5pt solid #8EAADC;
+  border-bottom:.5pt solid #8EAADC;border-left:none'>ATOMIC STRUCTURE:
+  SUBATOMIC PARTICLES, ISOS, RUTHEFORDS MODEL OF ATOM, NATURE OF LIGHT, BLACK
+  BODY RADIATION, PLANCK THEORY, PHOTOELECTRIC EFFECT, BOHR MODEL OF ATOM,
+  RADIUS, ENERGY, VELOCITY OF ORBIT, DRAW BACKS, HYDROGEN SPECTRUM</td>
+ </tr>
+ <tr height=56 style='height:42.0pt'>
+  <td height=56 class=xl6523428 style='height:42.0pt;font-size:8.0pt;
+  color:black;font-weight:400;text-decoration:none;text-underline-style:none;
+  text-line-through:none;font-family:Tahoma;border-top:none;border-right:none;
+  border-bottom:.5pt solid #8EAADC;border-left:.5pt solid #8EAADC;background:
+  #D9E2F3;mso-pattern:#D9E2F3 none'>MT</td>
+  <td class=xl6523428 style='font-size:8.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:Tahoma;border-top:none;border-right:none;border-bottom:.5pt solid #8EAADC;
+  border-left:none;background:#D9E2F3;mso-pattern:#D9E2F3 none'>1</td>
+  <td class=xl6523428 style='font-size:8.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:Tahoma;border-top:none;border-right:none;border-bottom:.5pt solid #8EAADC;
+  border-left:none;background:#D9E2F3;mso-pattern:#D9E2F3 none'>1</td>
+  <td class=xl6523428 style='font-size:8.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:Tahoma;border-top:none;border-right:none;border-bottom:.5pt solid #8EAADC;
+  border-left:none;background:#D9E2F3;mso-pattern:#D9E2F3 none'>20220130011</td>
+  <td class=xl6823428 style='font-size:8.0pt;color:black;font-weight:400;
+  text-decoration:none;text-underline-style:none;text-line-through:none;
+  font-family:Tahoma;border-top:none;border-right:none;border-bottom:.5pt solid #8EAADC;
+  border-left:none;background:#D9E2F3;mso-pattern:#D9E2F3 none'>2012/03/29</td>
+  <td class=xl6623428 width=995 style='width:746pt;font-size:8.0pt;color:black;
+  font-weight:400;text-decoration:none;text-underline-style:none;text-line-through:
+  none;font-family:Tahoma;border-top:none;border-right:.5pt solid #8EAADC;
+  border-bottom:.5pt solid #8EAADC;border-left:none;background:#D9E2F3;
+  mso-pattern:#D9E2F3 none'>SETS: BASIC INTRODUCTION TO SETS, COMPARISON OF
+  SETS: SUBSETS, SUPERSET, POWER SET, EQUAL SETS; CARDINAL NUMBER OF A SET,
+  OPERATIONS ON SETS: UNION, INTERSECTION; ADDITION THEOREM; LAWS: DEMORGANS
+  LAW, VENN DIAGRAM BASED PROBLEMS, COMPARISON OF SETS: SUBSETS, SUPERSET,
+  POWER SET, EQUAL SETS; CARDINAL NUMBER OF A SET, OPERATIONS ON SETS: UNION,
+  INTERSECTION; ADDITION THEOREM; LAWS: DEMORGANS LAW, VENN DIAGRAM BASED
+  PROBLEMS, RELATIONS: REPRESENTATION &gt; ORDERED PAIR, TYPES OF RELATION &gt;
+  SYMMETRIC, TYPES OF RELATION &gt; TRANSITIVE, TYPES OF RELATION &gt;
+  REFLEXIVE, TYPES OF RELATION &gt; EQUIVALENCE</td>
+ </tr>
+ 
+ 
+
+					</tbody>
+
+						<tfoot>
+						
+						</tfoot>
+					</table>
+				</div>
+				
+	<div class="fw-footer" style="text-align:center; background:gray; font-size:9.0pt;  color:white;>
+		
+		<div class="copyright">
+			
+			<p>WCRM designed and created by FIITJEE MUMBAI.</p>
+			<h3>copyright &copy;2021 </h3><br>
+			<br>
+			<br>
+			Andheri West: 2nd Floor, Saraswati Bhavan, Lotus Link Square Building, Cosmopolitan Education Society Marg, New Link Road, D.N. Nagar Metro Station, Andheri (W) Mumbai - 400058 | Seawoods: FIITJEE Limited, Seawoods Center, First Floor, Plot No. 11-A, Sector 42-A, Shanti Vaibhav CHS Ltd, Seawoods West, Navi Mumbai, Pin 400 706, Maharashtra, Landmark: Near D-Mart, Navi Mumbai | Thane: 2nd Floor, Evershine Mall (Prabhat Plaza), Opp. M H High School, Station Road, Thane (W) - 400 601 | Kandivali: Courtesy : Thakur Vidya Mandir High School & Junior College, Thakur Complex, Kandivali (East), Mumbai - 400 101.</p>
+		</div>
+	</div>
+	
+</center>
+</body>
+
+</html>
